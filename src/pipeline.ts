@@ -3,7 +3,7 @@ import { CodePipeline, CodePipelineSource, ShellStep } from 'aws-cdk-lib/pipelin
 import { Construct } from 'constructs';
 import { BucketTestStage } from './stage';
 
-export class BucketPipeline extends Stack {
+export class PipelineStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 

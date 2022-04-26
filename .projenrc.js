@@ -20,6 +20,8 @@ const project = new awscdk.AwsCdkTypeScriptApp({
   // Testing & Linting
   codeCov: true,
   eslint: true,
+  jest: true,
+  jestOptions: { jestVersion: '^27.5.1' },
   eslintOptions: {
     prettier: true,
   },

@@ -1,5 +1,5 @@
 import { App } from 'aws-cdk-lib';
-import { BucketPipeline } from './pipeline';
+import { PipelineStack } from './pipeline';
 
 const devEnv = {
   account: process.env.CDK_DEFAULT_ACCOUNT,
@@ -8,7 +8,7 @@ const devEnv = {
 
 const app = new App();
 
-new BucketPipeline(app, 'BucketPipeline', {
+new PipelineStack(app, 'BucketPipeline', {
   env: devEnv,
 });
 
