@@ -1,5 +1,5 @@
 import { SecretValue, Stack, StackProps } from 'aws-cdk-lib';
-import { CodePipeline, CodePipelineSource, ShellStep } from 'aws-cdk-lib/pipelines';
+import { CodePipeline, CodePipelineSource, ManualApprovalStep, ShellStep } from 'aws-cdk-lib/pipelines';
 import { Construct } from 'constructs';
 import { BucketTestStage } from './stage';
 
@@ -19,6 +19,8 @@ export class PipelineStack extends Stack {
       }),
     });
 
-    pipeline.addStage(new BucketTestStage(this, 'test-stage', {}));
+    pipeline.addStage(new BucketTestStage(this, 'test-stage'), {
+      post: [new ManualApprovalStep('ConfirmTestSetup')],
+    });
   }
 }
