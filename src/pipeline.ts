@@ -14,7 +14,9 @@ export class PipelineStack extends Stack {
             jsonField: 'access-token',
           }),
         }),
-        commands: ['yarn', 'yarn build', 'npx cdk synth'],
+
+        installCommands: ['yarn install --frozen-lockfile'],
+        commands: ['npx cdk synth'],
       }),
     });
 
